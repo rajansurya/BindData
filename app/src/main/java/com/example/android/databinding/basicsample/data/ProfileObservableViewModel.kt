@@ -8,18 +8,19 @@ import com.example.android.databinding.basicsample.util.ObservableViewModel
 import society.doscon.com.binddata.BR
 
 class ProfileObservableViewModel : ObservableViewModel() {
-    val name = ObservableField("Ada")
+    var name = ObservableField("LOOO")
     val lastName = ObservableField("Lovelace")
     val likes =  ObservableInt(0)
 
     fun onLike() {
         likes.increment()
         // You control when the @Bindable properties are updated using `notifyPropertyChanged()`.
-        notifyPropertyChanged(BR.popularity)
+        notifyPropertyChanged(BR.popName)
+        notifyPropertyChanged(BR.pop)
     }
 
     @Bindable
-    fun getPopularity(): Popularity {
+    fun getPop(): Popularity {
         return likes.get().let {
             when {
                 it > 9 -> Popularity.STAR
@@ -28,6 +29,18 @@ class ProfileObservableViewModel : ObservableViewModel() {
             }
         }
     }
+
+    @Bindable
+    fun getPopName(): String {
+        return likes.get().let {
+            when {
+                it > 9 -> "STAR"
+                it > 4 -> "POPULAR"
+                else -> "NORMAL"
+            }
+        }
+    }
+
 }
 
 /**
@@ -36,7 +49,7 @@ class ProfileObservableViewModel : ObservableViewModel() {
  * `likes` change.
  */
 class ProfileObservableFieldsViewModel : ViewModel() {
-    val name = ObservableField("Ada")
+    val name = ObservableField("Ada000")
     val lastName = ObservableField("Lovelace")
     val likes =  ObservableInt(0)
 

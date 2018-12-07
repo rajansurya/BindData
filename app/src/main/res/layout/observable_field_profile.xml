@@ -8,6 +8,7 @@
         <import type="society.doscon.com.binddata.R" />
 
         <import type="com.example.android.databinding.basicsample.util.ConverterUtil" />
+        <import type="com.example.android.databinding.basicsample.data.Popularity" />
 
         <variable
             name="user"
@@ -58,7 +59,7 @@
             android:contentDescription="@string/profile_avatar_cd"
             android:minHeight="48dp"
             android:minWidth="48dp"
-            android:tint="@{user.likes &gt; 9 ? @color/star : @android:color/black}"
+            app:popularityIcon="@{Popularity.POPULAR}"
             app:layout_constraintBottom_toTopOf="@+id/likes_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -143,6 +144,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+
             android:max="@{100}"
             android:visibility="@{ConverterUtil.isZero(user.likes)}"
             app:layout_constraintBottom_toBottomOf="parent"

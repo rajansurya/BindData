@@ -16,8 +16,7 @@ class ViewModelActivity : AppCompatActivity() {
         val viewModel = ViewModelProviders.of(this).get(ProfileObservableViewModel::class.java)
 
         // Obtain binding
-        val binding: ViewmodelProfileBinding =
-                DataBindingUtil.setContentView(this, R.layout.viewmodel_profile)
+        val binding: ViewmodelProfileBinding = DataBindingUtil.setContentView(this, R.layout.viewmodel_profile)
 
         // Bind layout with ViewModel
         binding.viewmodel = viewModel
